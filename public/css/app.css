@@ -1,0 +1,16 @@
+body{
+    max-width: 40%; 
+    margin:auto;  
+}
+
+article+article {
+ 
+    margin-top: 4rem;
+    border-top: 1px solid rgb(212, 211, 211);
+ 
+}
+
+
+p {
+    font-family: 'Times New Roman', Times, serif   ;
+}
