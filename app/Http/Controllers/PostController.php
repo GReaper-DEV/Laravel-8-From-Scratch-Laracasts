@@ -9,10 +9,13 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index(){
+
+
+
         return view('.posts.index', [
             //pass the results into posts variable
             //give me the posts, that i filtered IF there is any, by the newest order.
-            'posts' => Post::latest()->filter(\request(['search','category', 'author']))->get()
+            'posts' => Post::latest()->filter(\request(['search','category', 'author']))->paginate(6)->withQueryString()
         ]);
     }
 

@@ -16,12 +16,30 @@
                 </a>
             </div>
 
-            <div class="mt-8 md:mt-0">
-                <a href="/" class="text-xs font-bold uppercase">Home Page</a>
+            <div class="flex items-center md:mt-0 mt-8">
+                @guest
+                <a href="/register" class="text-xs font-bold uppercase">Register</a>
+
+                <a href="/login"
+                    class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
+                    Log In
+                </a>
+                @endguest
+
+                @auth
+                    <p class="mr-4">Welcome, <span class="font-semibold"> {{ auth()->user()->name }}</span>!</p>
+
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <button type="submit">Log Out</button>
+                    </form>
+                @endauth
+
 
                 <a href="#" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
                     Subscribe for Updates
                 </a>
+
             </div>
         </nav>
 
@@ -42,17 +60,17 @@
                             </label>
 
                             <input id="email" type="text" placeholder="Your email address"
-                                   class="lg:bg-transparent py-2 lg:py-0 pl-4 focus-within:outline-none">
+                                class="lg:bg-transparent py-2 lg:py-0 pl-4 focus-within:outline-none">
                         </div>
 
                         <button type="submit"
-                                class="transition-colors duration-300 bg-blue-500 hover:bg-blue-600 mt-4 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8"
-                        >
+                            class="transition-colors duration-300 bg-blue-500 hover:bg-blue-600 mt-4 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8">
                             Subscribe
                         </button>
                     </form>
                 </div>
             </div>
         </footer>
+        <x-created />
     </section>
 </body>

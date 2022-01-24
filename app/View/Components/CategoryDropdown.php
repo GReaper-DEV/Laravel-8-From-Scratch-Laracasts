@@ -10,6 +10,8 @@ class CategoryDropdown extends Component
 
     public function render()
     {
+
+        //It is used only in a component. 
         return view('components.category-dropdown',
             [
                 'categories' => Category::all(),
